@@ -3,6 +3,10 @@ This is my RA project from Dr. Boecherer. Applying coded modulation on iterative
 
 ### Updating Blog
 
+**09.Aug.2016 - V0.7**
+
+After testing SOVA algorithm, I think it is not a good algorithm. I test the Log-MAP algorithm again, get the exactly performance.
+
 **08.Aug.2016 - V0.7**
 
 This is the first time using GitHub on my Matlab Project. This version now basicly realize the structure of communication system. 
