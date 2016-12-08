@@ -8,6 +8,7 @@ bitTable=[0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1;
           0 0 0 1 1 0 2 2 2 2 0 1 1 0 0 0;
           0 0 1 2 2 2 2 2 2 2 2 2 2 1 0 0;
           0 1 2 2 2 2 2 2 2 2 2 2 2 2 1 0];
+inf=1e10;
 %% First Demap
 %First demap iteration, give out the first LLR, without the a piror
 %information
@@ -20,9 +21,11 @@ for i=1:1:length(receivedQAM)
         for j=1:1:16
             if bitTable(k,j)==1
                 firstLLR1_WithoutAPP(((i-1)*6+k),j)=1/(-2)*(tempQAM-X(j))^2+1*log(pX(j));
+                firstLLR0_WithoutAPP(((i-1)*6+k),j)=-inf;
             end
             if bitTable(k,j)==0
                 firstLLR0_WithoutAPP(((i-1)*6+k),j)=1/(-2)*(tempQAM-X(j))^2+1*log(pX(j));
+                firstLLR1_WithoutAPP(((i-1)*6+k),j)=-inf;
             end
             if bitTable(k,j)==2
                 firstLLR1_WithoutAPP(((i-1)*6+k),j)=1/(-2)*(tempQAM-X(j))^2+1*log(pX(j)/2);
@@ -49,17 +52,6 @@ for itDemap=1:1:numDemapIteration
     %Turbo decoder
     L_D_p=turbo_decoder(L_D_a,turboInterleaver,G,numDecodeIteration);
     L_D_p=limit_number(L_D_p);
-    %NOTE! L_D_p has 3 rows, only the first row has data, others are 0
-    %perror=length(find(sign(L_D_p(1,:))~=sign(L_D_a(1,:))));
-    
-    %tempLDa=L_D_p(1,:);
-    %tempLDa=(sign(tempLDa)+1)/2;
-    %perror=length(find(tempLDa(1,1:info_length)~=info));
-    %find(tempLDa(1,1:info_length)~=info)
-    %display(perror);
-    
-    %L_D_e(1,:)=L_D_p(1,:);%-L_D_a(1,:);
-    %L_D_e(2:3,:)=L_D_p(2:3,:)-L_D_p(2:3,:);
     L_D_e=L_D_p-L_D_a;
     %QAM interleaver and puncture
     L_M_a=interleaver_puncture_12_256(L_D_e,QAMInterleaver);

@@ -24,7 +24,7 @@ end
 %Apply interleaver and puncture
 tempL=[];
 for i=1:1:(length(oneDimension)/length(QAMInterleaver))
-    temp=matrixReshape(1,:);
+    temp=matrixReshape(i,:);
     tempInt=temp(QAMInterleaver);
     tempIntPunc=tempInt(1,1:8);
     tempL=[tempL,tempIntPunc];

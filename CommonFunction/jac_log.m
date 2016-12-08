@@ -1,6 +1,6 @@
 function Y = jac_log(X)
 %Jacobian logarithm, can be implemented by using look up table.
-if length(X)==0
+if isempty(X)
     Y=0;
 else
     tempY=X(1);

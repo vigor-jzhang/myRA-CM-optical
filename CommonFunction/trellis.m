@@ -34,7 +34,8 @@ for state=1:max_state
    a_k = rem( g(1,:)*[1 state_vector]', 2 );
    [out_1, state_1] = encode_bit(g, a_k, state_vector);
    out_1(1) = 1;
-   next_out(state,:) = [out_0 out_1];
+   %next_out(state,:) = [out_0 out_1];
+   next_out(state,:) = 2*[out_0 out_1]-1;
    next_state(state,:) = [(int_state(state_0)+1) (int_state(state_1)+1)];
 end
 

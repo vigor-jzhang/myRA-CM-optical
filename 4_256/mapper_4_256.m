@@ -20,7 +20,7 @@ P=10.^(SNR./10);
 %Calculate average power
 X=X/sqrt(sum(abs(X).^2.*pX))*sqrt(P);
 
-bitTable=[0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1;
+bitTable=[1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0;
           0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0;
           0 0 1 1 1 1 0 0 0 0 1 1 1 1 0 0;
           0 1 1 0 0 1 1 0 0 1 1 0 0 1 1 0];

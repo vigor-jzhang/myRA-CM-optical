@@ -11,7 +11,7 @@ addpath(genpath(pwd));
 %Block size
 blockSize=5000;
 %One test, blocks number
-blockNumber=5;
+blockNumber=50;
 %Tests number
 testNumber=1;
 
@@ -21,14 +21,14 @@ G=[1 0 0 1 1; 1 1 1 1 1];
 %4 for uniform 256-QAM, 5 for uniform 1024-QAM, 10 and 12 for 256-QAM, 14 and 16 for 1024-QAM
 l_max=4;
 %Demapping iteration
-numDemapIteration=5;
+numDemapIteration=1;
 %Decoding iteration
-numDecodeIteration=4;
+numDecodeIteration=6;
 %SNR
-arraySNR=23;
+arraySNR=23.4;
 
 %% Simulation
-errorRate=zeros(1,length(arraySNR));
+% errorRate=zeros(1,length(arraySNR));
 % switch l_max
 %     case 4
 %         fid=fopen('4_256.txt','a+');

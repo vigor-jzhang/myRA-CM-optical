@@ -8,6 +8,9 @@ m=K-1;
 
 %Random Interleaver Generate
 [temp,turboInterleaver]=sort(rand(1,blockSize));
+save turboInt.mat turboInterleaver;
+%turboInterleaver=(blockSize:-1:1);
+%load turboInt.mat;
 %Generate Info bits
 info=round(rand(blockNumber,blockSize-m));
 
@@ -20,4 +23,3 @@ for i=1:blockNumber
 end
 
 end
-
