@@ -14,12 +14,8 @@ for i=1:1:length(L_M_p)
     LLR1=[];
     LLR0=[];
     for j=1:1:length(tempLLR1)
-        if abs(tempLLR1(j))>1e-10
-            LLR1=[LLR1, tempLLR1(j)+otherLa];
-        end
-        if abs(tempLLR0(j))>1e-10
-            LLR0=[LLR0, tempLLR0(j)+otherLa];
-        end
+        LLR1=[LLR1, tempLLR1(j)+otherLa];
+        LLR0=[LLR0, tempLLR0(j)+otherLa];
     end
     LLR1=jac_log(LLR1);
     LLR0=jac_log(LLR0);
